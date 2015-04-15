@@ -1,0 +1,28 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+def libs = [
+        molecule     : 'com.vtence.molecule:molecule:0.8', changing: true,
+        molecule_test: 'com.vtence.molecule:molecule:0.8:tests', changing: true,
+        simple       : 'org.simpleframework:simple-http:6.0.1',
+        junit        : 'junit:junit:4.12@jar',
+        hamcrest_all : 'org.hamcrest:hamcrest-all:1.3',
+]
+
+dependencies {
+    compile libs.molecule
+    compile libs.simple
+
+    testCompile libs.molecule_test
+    testCompile libs.junit
+    testCompile libs.hamcrest_all
+}
+
+

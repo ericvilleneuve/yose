@@ -14,6 +14,11 @@ public class Yose {
 		server = WebServer.create(port);
 	}
 
+	public static void main(String[] args) throws IOException {
+		Yose yose = new Yose(8867);
+		yose.start();
+	}
+
 	public void start() throws IOException {
 		server.start((request, response) -> {
 			response.status(HttpStatus.OK);
